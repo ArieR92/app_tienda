@@ -1,9 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
-import {NavLink, Switch, Route} from 'react-router-dom';
+import {NavLink, Routes, Route} from 'react-router-dom';
+import Inicio from './componentes/Inicio';
+import Blog from './componentes/Blog';
+import Tienda from './componentes/Tienda';
+import Error404 from './componentes/Error404';
+import Carrito from './componentes/Carrito';
+import { useState } from 'react/cjs/react.development';
 
 
 const App = () => {
+const productos = [
+    {id: 1, nombre: 'Producto 1'},
+    {id: 2, nombre: 'Producto 2'},
+    {id: 3, nombre: 'Producto 3'},
+    {id: 4, nombre: 'Producto 4'}
+]
+
+const [carrito, cambiarCarrito] = useState([]);
+
+const agregarProductoAlCarrito = (idAlProductoAAgregar, nombre) => {
+  if(){
+    
+  }
+  
+
+}
+
+
   return (
 
     <Contenedor>
@@ -15,11 +39,20 @@ const App = () => {
 
        <main>
 
-         <Switch>
-            <Route path="/" element={} ></Route>
-         </Switch>
+         <Routes>
+            <Route path="/" element = {<Inicio />}> </Route>
+            <Route path="/blog" element = {<Blog/>}> </Route>
+            <Route path="/tienda" element = {<Tienda productos= {productos} agregarProductoAlCarrito={agregarProductoAlCarrito}/>}> </Route>
+            <Route element = {<Error404/>}> </Route>
+         </Routes>
 
        </main>
+
+       <aside>
+
+         <Carrito carrito= {carrito} />
+         
+      </aside>
     </Contenedor>
 
   );
