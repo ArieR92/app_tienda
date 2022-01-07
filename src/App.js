@@ -18,13 +18,29 @@ const productos = [
 ]
 
 const [carrito, cambiarCarrito] = useState([]);
-
+// si el carrito no tiene elementos entonces agregamos uno
 const agregarProductoAlCarrito = (idAlProductoAAgregar, nombre) => {
-  if(){
-    
-  }
-  
+  if(carrito.length === 0 ){ 
+    cambiarCarrito([{id: idAlProductoAAgregar, nombre: nombre, cantidad: 1}]);
+  } else{
 
+    const nuevoCarrito = [...carrito];
+
+//comprobamos si el carrito ya tiene el id del producto que queremos agregar
+const yaEstaEnCarrito = nuevoCarrito.filter((productoDeCarrito)=>{
+  return productoDeCarrito.id === idAlProductoAAgregar
+}).length >0;
+
+//si ya tiene el producto entonces lo tenemos que actualizar
+if(yaEstaEnCarrito){
+//para ello tenemos que buscarlo, obtener su posicion en el arreglo
+//y en base a su posicion ya actualizamos el valor
+
+}
+
+
+
+  }
 }
 
 
